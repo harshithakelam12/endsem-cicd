@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hms-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hms-backend
+  template:
+    metadata:
+      labels:
+        app: hms-backend
+    spec:
+      containers:
+        - name: hms-backend
+          image: hms-backend:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080

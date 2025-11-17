@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hms-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hms-frontend
+  template:
+    metadata:
+      labels:
+        app: hms-frontend
+    spec:
+      containers:
+        - name: hms-frontend
+          image: hms-frontend:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
